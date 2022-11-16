@@ -1,0 +1,22 @@
+import React from 'react';
+import { StartTimeEvent } from './ScheduleMeeting';
+declare type Props = {
+    startTimeListItems?: StartTimeEvent[];
+    onStartTimeSelect: (startTimeEvent: StartTimeEvent) => void;
+    emptyListContentEl?: React.ElementType;
+    borderRadius: number;
+    primaryColor: string;
+    primaryColorFaded: string;
+    format_startTimeFormatString: string;
+    lang_emptyListText: string;
+    lang_confirmButtonText: string;
+    lang_cancelButtonText: string;
+    lang_goToNextAvailableDayText: string;
+    lang_noFutureTimesText: string;
+    onGoToNextAvailableDayClick: () => void;
+    nextFutureStartTimeAvailable: undefined | Date;
+    format_nextFutureStartTimeAvailableFormatString: string;
+    startTimeListStyle?: 'scroll-list' | 'grid';
+};
+declare const StartTimeList: React.FC<Props>;
+export default StartTimeList;
