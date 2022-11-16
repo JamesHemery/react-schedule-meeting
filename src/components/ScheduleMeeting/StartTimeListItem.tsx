@@ -70,7 +70,7 @@ const StartTimeListItem: React.FC<Props> = ({
         {format(startTimeEvent.startTime, format_startTimeFormatString)}
       </ThemedButton>
       {selected && (
-      <CancelButton type="button" className="rsm-cancel-button" borderRadius={borderRadius} onClick={onCancelClicked}>
+        <CancelButton type="button" className="rsm-cancel-button" borderRadius={borderRadius} onClick={onCancelClicked}>
           {lang_cancelButtonText}
         </CancelButton>
       )}
