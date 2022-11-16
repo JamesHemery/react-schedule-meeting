@@ -1,7 +1,7 @@
 /* eslint-disable */
 import * as React from 'react';
 import React__default, { useState, useEffect } from 'react';
-import { isValid, getDay, format, startOfMonth, differenceInMinutes, addMinutes, isSameDay, isSameMinute, isPast, isAfter, isToday, subMonths, addMonths, subDays, addDays } from 'date-fns';
+import { isValid, getDay, startOfMonth, format, differenceInMinutes, addMinutes, isSameDay, isSameMinute, isPast, isAfter, isToday, subMonths, addMonths, subDays, addDays } from 'date-fns';
 import Calendar from 'react-calendar';
 import rgba from 'color-rgba';
 import styled from 'styled-components';
@@ -172,7 +172,7 @@ const StyledCalendar = styled(Calendar) `
     text-decoration: none;
     font-weight: normal;
     color: #333;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
   }
 
@@ -247,21 +247,25 @@ const ThemedButton = styled.button `
   }
 `;
 const StartTimeGridItemButton = styled.button `
-  padding: 12px 16px;
-  margin: 4px;
-  border: none;
-  color: white;
-  background-color: ${({ primaryColor }) => primaryColor};
+  padding: 5px 14px;
+  margin: 9px;
+  border-color: ${({ primaryColor }) => primaryColor};
+  color: ${({ primaryColor }) => primaryColor};
+  border-style: solid;
+  border-width: 1px;
+  background-color: #fff;
   border-radius: ${({ borderRadius }) => borderRadius}px;
   outline: none;
   cursor: pointer;
   font-size: 16px;
   opacity: 1;
-  @media (max-width: 768px) {
-    padding: 7px 12px;
-  }
   :hover {
-    opacity: 0.8;
+    background-color: ${({ primaryColor }) => primaryColor};
+    color: #fff;
+  }
+  :active {
+    background-color: ${({ primaryColor }) => primaryColor};
+    color: #fff;
   }
 `;
 
@@ -445,12 +449,9 @@ const StartTimeListContainer = styled.div `
   flex: 1;
   overflow: hidden;
   position: relative;
-  @media (max-width: 768px) {
-    min-height: 301px;
-  }
 `;
 const StartTimeListContainerAbsolute = styled.div `
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -460,7 +461,10 @@ const SelectedDayTitle = styled.h3 `
   margin: 0;
   padding: 0;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 18px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  } ;
 `;
 const Header = styled.div `
   width: 100%;

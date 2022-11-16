@@ -176,7 +176,7 @@ const StyledCalendar = styled(Calendar)<CalendarStyleProps>`
     text-decoration: none;
     font-weight: normal;
     color: #333;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
   }
 

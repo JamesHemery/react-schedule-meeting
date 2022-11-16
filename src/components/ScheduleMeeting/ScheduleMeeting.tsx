@@ -62,13 +62,10 @@ const StartTimeListContainer = styled.div`
   flex: 1;
   overflow: hidden;
   position: relative;
-  @media (max-width: 768px) {
-    min-height: 301px;
-  }
 `;
 
 const StartTimeListContainerAbsolute = styled.div`
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -79,7 +76,10 @@ const SelectedDayTitle = styled.h3`
   margin: 0;
   padding: 0;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 18px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  } ;
 `;
 
 const Header = styled.div`

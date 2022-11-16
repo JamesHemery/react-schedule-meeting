@@ -26,20 +26,24 @@ export const ThemedButton = styled.button<ButtonProps>`
 `;
 
 export const StartTimeGridItemButton = styled.button<ButtonProps>`
-  padding: 12px 16px;
-  margin: 4px;
-  border: none;
-  color: white;
-  background-color: ${({ primaryColor }) => primaryColor};
+  padding: 5px 14px;
+  margin: 9px;
+  border-color: ${({ primaryColor }) => primaryColor};
+  color: ${({ primaryColor }) => primaryColor};
+  border-style: solid;
+  border-width: 1px;
+  background-color: #fff;
   border-radius: ${({ borderRadius }) => borderRadius}px;
   outline: none;
   cursor: pointer;
   font-size: 16px;
   opacity: 1;
-  @media (max-width: 768px) {
-    padding: 7px 12px;
-  }
   :hover {
-    opacity: 0.8;
+    background-color: ${({ primaryColor }) => primaryColor};
+    color: #fff;
+  }
+  :active {
+    background-color: ${({ primaryColor }) => primaryColor};
+    color: #fff;
   }
 `;
