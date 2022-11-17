@@ -25,7 +25,6 @@ type Props = {
   nextFutureStartTimeAvailable: undefined | Date;
   format_nextFutureStartTimeAvailableFormatString: string;
   startTimeListStyle?: 'scroll-list' | 'grid';
-  isActive: boolean;
 };
 
 const ScrollListContainer = styled.div`
@@ -41,9 +40,8 @@ const GridContainer = styled.div`
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  overflow-y: scroll;
-  align-items: stretch;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ScrollEdgeFade = styled.div`
@@ -137,7 +135,6 @@ const StartTimeList: React.FC<Props> = ({
   nextFutureStartTimeAvailable,
   format_nextFutureStartTimeAvailableFormatString,
   startTimeListStyle,
-  isActive,
 }) => {
   const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
 
@@ -145,10 +142,12 @@ const StartTimeList: React.FC<Props> = ({
     if (selectedItemIndex === index) {
       onStartTimeSelect(startTimeEvent);
     } else {
+      onStartTimeSelect(startTimeEvent);
       setSelectedItemIndex(index);
     }
   };
 
+  console.log(selectedItemIndex, 'selectedItemIndex');
   const emptyListElement = (
     <NoTimesAvailableContainer>
       {emptyListContentEl || <StyledP className="rsm-empty-list-text">{lang_emptyListText}</StyledP>}
@@ -161,7 +160,6 @@ const StartTimeList: React.FC<Props> = ({
           primaryColorFaded={primaryColorFaded}
           primaryColor={primaryColor}
           onClick={onGoToNextAvailableDayClick}
-          isActive={isActive}
         >
           <p>
             <small>{lang_goToNextAvailableDayText}</small>
@@ -202,7 +200,6 @@ const StartTimeList: React.FC<Props> = ({
                   selected={i === selectedItemIndex}
                   startTimeEvent={startTimeEvent}
                   onStartTimeSelect={() => _onStartTimeSelect(startTimeEvent, i)}
-                  isActive={isActive}
                 />
                 {i !== startTimeListItems.length - 1 && (
                   <ListItemDivider makeTransparent={selectedItemIndex === i || selectedItemIndex === i + 1} />
@@ -213,19 +210,23 @@ const StartTimeList: React.FC<Props> = ({
         </>
       ) : (
         <GridContainer>
-          {startTimeListItems.map((startTimeEvent: any, i: number) => (
-            <StartTimeGridItemButton
-              key={i}
-              type="button"
-              primaryColorFaded={primaryColorFaded}
-              borderRadius={borderRadius}
-              primaryColor={primaryColor}
-              onClick={() => onStartTimeSelect(startTimeEvent)}
-              isActive={isActive}
-            >
-              {format(startTimeEvent.startTime, format_startTimeFormatString)}
-            </StartTimeGridItemButton>
-          ))}
+          {startTimeListItems.map((startTimeEvent: any, i: number) => {
+            console.log(startTimeEvent, 'in map');
+            console.log(i === selectedItemIndex, 'selected');
+            return (
+              <StartTimeGridItemButton
+                key={i}
+                type="button"
+                primaryColorFaded={primaryColorFaded}
+                borderRadius={borderRadius}
+                primaryColor={primaryColor}
+                onClick={() => _onStartTimeSelect(startTimeEvent, i)}
+                selected={i === selectedItemIndex}
+              >
+                {format(startTimeEvent.startTime, format_startTimeFormatString)}
+              </StartTimeGridItemButton>
+            );
+          })}
         </GridContainer>
       )}
     </>

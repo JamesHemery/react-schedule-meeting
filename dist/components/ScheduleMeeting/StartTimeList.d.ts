@@ -17,7 +17,6 @@ declare type Props = {
     nextFutureStartTimeAvailable: undefined | Date;
     format_nextFutureStartTimeAvailableFormatString: string;
     startTimeListStyle?: 'scroll-list' | 'grid';
-    isActive: boolean;
 };
 declare const StartTimeList: React.FC<Props>;
 export default StartTimeList;

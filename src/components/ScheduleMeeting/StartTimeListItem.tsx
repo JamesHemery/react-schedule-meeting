@@ -16,7 +16,6 @@ type Props = {
   format_startTimeFormatString: string;
   lang_confirmButtonText: string;
   lang_cancelButtonText: string;
-  isActive: boolean;
 };
 
 const Container = styled.div`
@@ -55,7 +54,6 @@ const StartTimeListItem: React.FC<Props> = ({
   format_startTimeFormatString,
   lang_confirmButtonText,
   lang_cancelButtonText,
-  isActive,
 }) => {
   return (
     <Container className="rsm-start-time-item">
@@ -67,7 +65,6 @@ const StartTimeListItem: React.FC<Props> = ({
         primaryColorFaded={primaryColorFaded}
         primaryColor={primaryColor}
         onClick={onStartTimeSelect}
-        isActive={isActive}
       >
         {selected && `${lang_confirmButtonText} `}
         {format(startTimeEvent.startTime, format_startTimeFormatString)}

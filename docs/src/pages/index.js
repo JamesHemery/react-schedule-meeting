@@ -25,6 +25,7 @@ function Home() {
   });
 
   const handleTimeslotClicked = (startTimeEventEmit) => {
+    console.log(startTimeEventEmit, 'startTimeEventEmit');
     alert(`Time selected: ${format(startTimeEventEmit.startTime, 'cccc, LLLL do h:mm a')}`);
   };
 
