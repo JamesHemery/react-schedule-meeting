@@ -11,6 +11,7 @@ declare type Props = {
     format_startTimeFormatString: string;
     lang_confirmButtonText: string;
     lang_cancelButtonText: string;
+    isActive: boolean;
 };
 declare const StartTimeListItem: React.FC<Props>;
 export default StartTimeListItem;
