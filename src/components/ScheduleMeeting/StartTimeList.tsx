@@ -25,6 +25,7 @@ type Props = {
   nextFutureStartTimeAvailable: undefined | Date;
   format_nextFutureStartTimeAvailableFormatString: string;
   startTimeListStyle?: 'scroll-list' | 'grid';
+  isActive: boolean;
 };
 
 const ScrollListContainer = styled.div`
@@ -136,6 +137,7 @@ const StartTimeList: React.FC<Props> = ({
   nextFutureStartTimeAvailable,
   format_nextFutureStartTimeAvailableFormatString,
   startTimeListStyle,
+  isActive,
 }) => {
   const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
 
@@ -159,6 +161,7 @@ const StartTimeList: React.FC<Props> = ({
           primaryColorFaded={primaryColorFaded}
           primaryColor={primaryColor}
           onClick={onGoToNextAvailableDayClick}
+          isActive={isActive}
         >
           <p>
             <small>{lang_goToNextAvailableDayText}</small>
@@ -176,6 +179,7 @@ const StartTimeList: React.FC<Props> = ({
     </NoTimesAvailableContainer>
   );
 
+  console.log(startTimeListItems);
   return (
     <>
       {startTimeListItems.length === 0 ? (
@@ -198,6 +202,7 @@ const StartTimeList: React.FC<Props> = ({
                   selected={i === selectedItemIndex}
                   startTimeEvent={startTimeEvent}
                   onStartTimeSelect={() => _onStartTimeSelect(startTimeEvent, i)}
+                  isActive={isActive}
                 />
                 {i !== startTimeListItems.length - 1 && (
                   <ListItemDivider makeTransparent={selectedItemIndex === i || selectedItemIndex === i + 1} />
@@ -216,6 +221,7 @@ const StartTimeList: React.FC<Props> = ({
               borderRadius={borderRadius}
               primaryColor={primaryColor}
               onClick={() => onStartTimeSelect(startTimeEvent)}
+              isActive={isActive}
             >
               {format(startTimeEvent.startTime, format_startTimeFormatString)}
             </StartTimeGridItemButton>

@@ -5,6 +5,7 @@ type ButtonProps = {
   primaryColor: string;
   borderRadius: number;
   primaryColorFaded: string;
+  isActive: boolean;
 };
 
 export const ThemedButton = styled.button<ButtonProps>`
@@ -42,8 +43,10 @@ export const StartTimeGridItemButton = styled.button<ButtonProps>`
     background-color: ${({ primaryColor }) => primaryColor};
     color: #fff;
   }
-  :active {
-    background-color: ${({ primaryColor }) => primaryColor};
+  ${({ isActive, primaryColor }) =>
+    isActive &&
+    `
+    background-color: ${primaryColor};
     color: #fff;
-  }
+  `}
 `;
