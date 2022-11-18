@@ -147,7 +147,6 @@ const StartTimeList: React.FC<Props> = ({
     }
   };
 
-  console.log(selectedItemIndex, 'selectedItemIndex');
   const emptyListElement = (
     <NoTimesAvailableContainer>
       {emptyListContentEl || <StyledP className="rsm-empty-list-text">{lang_emptyListText}</StyledP>}
@@ -177,7 +176,6 @@ const StartTimeList: React.FC<Props> = ({
     </NoTimesAvailableContainer>
   );
 
-  console.log(startTimeListItems);
   return (
     <>
       {startTimeListItems.length === 0 ? (
@@ -211,8 +209,6 @@ const StartTimeList: React.FC<Props> = ({
       ) : (
         <GridContainer>
           {startTimeListItems.map((startTimeEvent: any, i: number) => {
-            console.log(startTimeEvent, 'in map');
-            console.log(i === selectedItemIndex, 'selected');
             return (
               <StartTimeGridItemButton
                 key={i}
