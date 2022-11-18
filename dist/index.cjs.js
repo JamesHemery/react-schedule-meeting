@@ -419,7 +419,6 @@ const StartTimeList = ({ startTimeListItems = [], onStartTimeSelect, emptyListCo
             setSelectedItemIndex(index);
         }
     };
-    console.log(selectedItemIndex, 'selectedItemIndex');
     const emptyListElement = (React__default["default"].createElement(NoTimesAvailableContainer, null,
         emptyListContentEl || React__default["default"].createElement(StyledP, { className: "rsm-empty-list-text" }, lang_emptyListText),
         nextFutureStartTimeAvailable ? (React__default["default"].createElement(GoToNextAvailableDayButton, { type: "button", selected: true, className: "rsm-next-available-date-button", borderRadius: borderRadius, primaryColorFaded: primaryColorFaded, primaryColor: primaryColor, onClick: onGoToNextAvailableDayClick },
@@ -428,15 +427,12 @@ const StartTimeList = ({ startTimeListItems = [], onStartTimeSelect, emptyListCo
                 React__default["default"].createElement("br", null),
                 dateFns.format(nextFutureStartTimeAvailable, format_nextFutureStartTimeAvailableFormatString)),
             React__default["default"].createElement(Arrow, { direction: "forward" }))) : (React__default["default"].createElement(NoFutureTimesText, { borderRadius: borderRadius, className: "rsm-no-future-times-text" }, lang_noFutureTimesText))));
-    console.log(startTimeListItems);
     return (React__default["default"].createElement(React__default["default"].Fragment, null, startTimeListItems.length === 0 ? (emptyListElement) : startTimeListStyle === 'scroll-list' ? (React__default["default"].createElement(React__default["default"].Fragment, null,
         React__default["default"].createElement(ScrollEdgeFade, { className: "top" }),
         React__default["default"].createElement(ScrollEdgeFade, { className: "bottom" }),
         React__default["default"].createElement(ScrollListContainer, null, startTimeListItems.map((startTimeEvent, i) => (React__default["default"].createElement(React__default["default"].Fragment, { key: i },
             React__default["default"].createElement(StartTimeListItem, { lang_confirmButtonText: lang_confirmButtonText, lang_cancelButtonText: lang_cancelButtonText, format_startTimeFormatString: format_startTimeFormatString, primaryColorFaded: primaryColorFaded, borderRadius: borderRadius, primaryColor: primaryColor, onCancelClicked: () => setSelectedItemIndex(-1), selected: i === selectedItemIndex, startTimeEvent: startTimeEvent, onStartTimeSelect: () => _onStartTimeSelect(startTimeEvent, i) }),
             i !== startTimeListItems.length - 1 && (React__default["default"].createElement(ListItemDivider, { makeTransparent: selectedItemIndex === i || selectedItemIndex === i + 1 })))))))) : (React__default["default"].createElement(GridContainer, null, startTimeListItems.map((startTimeEvent, i) => {
-        console.log(startTimeEvent, 'in map');
-        console.log(i === selectedItemIndex, 'selected');
         return (React__default["default"].createElement(StartTimeGridItemButton, { key: i, type: "button", primaryColorFaded: primaryColorFaded, borderRadius: borderRadius, primaryColor: primaryColor, onClick: () => _onStartTimeSelect(startTimeEvent, i), selected: i === selectedItemIndex }, dateFns.format(startTimeEvent.startTime, format_startTimeFormatString)));
     })))));
 };
