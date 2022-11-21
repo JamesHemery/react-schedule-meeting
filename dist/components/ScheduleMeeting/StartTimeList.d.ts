@@ -11,7 +11,6 @@ declare type Props = {
     lang_emptyListText: string;
     lang_confirmButtonText: string;
     lang_cancelButtonText: string;
-    lang_goToNextAvailableDayText: string;
     lang_noFutureTimesText: string;
     onGoToNextAvailableDayClick: () => void;
     nextFutureStartTimeAvailable: undefined | Date;

@@ -408,7 +408,7 @@ const NoFutureTimesText = styled__default["default"](StyledP) `
   border-radius: ${({ borderRadius }) => borderRadius}px;
   border: 1px solid rgba(0, 0, 0, 0.5);
 `;
-const StartTimeList = ({ startTimeListItems = [], onStartTimeSelect, emptyListContentEl, lang_emptyListText, borderRadius, primaryColorFaded, primaryColor, format_startTimeFormatString, lang_confirmButtonText, lang_cancelButtonText, lang_goToNextAvailableDayText, lang_noFutureTimesText, onGoToNextAvailableDayClick, nextFutureStartTimeAvailable, format_nextFutureStartTimeAvailableFormatString, startTimeListStyle, }) => {
+const StartTimeList = ({ startTimeListItems = [], onStartTimeSelect, emptyListContentEl, lang_emptyListText, borderRadius, primaryColorFaded, primaryColor, format_startTimeFormatString, lang_confirmButtonText, lang_cancelButtonText, lang_noFutureTimesText, onGoToNextAvailableDayClick, nextFutureStartTimeAvailable, format_nextFutureStartTimeAvailableFormatString, startTimeListStyle, }) => {
     const [selectedItemIndex, setSelectedItemIndex] = React.useState(-1);
     const _onStartTimeSelect = (startTimeEvent, index) => {
         if (selectedItemIndex === index) {
@@ -422,10 +422,7 @@ const StartTimeList = ({ startTimeListItems = [], onStartTimeSelect, emptyListCo
     const emptyListElement = (React__default["default"].createElement(NoTimesAvailableContainer, null,
         emptyListContentEl || React__default["default"].createElement(StyledP, { className: "rsm-empty-list-text" }, lang_emptyListText),
         nextFutureStartTimeAvailable ? (React__default["default"].createElement(GoToNextAvailableDayButton, { type: "button", selected: true, className: "rsm-next-available-date-button", borderRadius: borderRadius, primaryColorFaded: primaryColorFaded, primaryColor: primaryColor, onClick: onGoToNextAvailableDayClick },
-            React__default["default"].createElement("p", null,
-                React__default["default"].createElement("small", null, lang_goToNextAvailableDayText),
-                React__default["default"].createElement("br", null),
-                dateFns.format(nextFutureStartTimeAvailable, format_nextFutureStartTimeAvailableFormatString)),
+            React__default["default"].createElement("p", null, dateFns.format(nextFutureStartTimeAvailable, format_nextFutureStartTimeAvailableFormatString)),
             React__default["default"].createElement(Arrow, { direction: "forward" }))) : (React__default["default"].createElement(NoFutureTimesText, { borderRadius: borderRadius, className: "rsm-no-future-times-text" }, lang_noFutureTimesText))));
     return (React__default["default"].createElement(React__default["default"].Fragment, null, startTimeListItems.length === 0 ? (emptyListElement) : startTimeListStyle === 'scroll-list' ? (React__default["default"].createElement(React__default["default"].Fragment, null,
         React__default["default"].createElement(ScrollEdgeFade, { className: "top" }),

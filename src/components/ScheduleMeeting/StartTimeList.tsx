@@ -19,7 +19,6 @@ type Props = {
   lang_emptyListText: string;
   lang_confirmButtonText: string;
   lang_cancelButtonText: string;
-  lang_goToNextAvailableDayText: string;
   lang_noFutureTimesText: string;
   onGoToNextAvailableDayClick: () => void;
   nextFutureStartTimeAvailable: undefined | Date;
@@ -129,7 +128,6 @@ const StartTimeList: React.FC<Props> = ({
   format_startTimeFormatString,
   lang_confirmButtonText,
   lang_cancelButtonText,
-  lang_goToNextAvailableDayText,
   lang_noFutureTimesText,
   onGoToNextAvailableDayClick,
   nextFutureStartTimeAvailable,
@@ -160,12 +158,7 @@ const StartTimeList: React.FC<Props> = ({
           primaryColor={primaryColor}
           onClick={onGoToNextAvailableDayClick}
         >
-          <p>
-            <small>{lang_goToNextAvailableDayText}</small>
-            <br />
-            {format(nextFutureStartTimeAvailable, format_nextFutureStartTimeAvailableFormatString)}
-          </p>
-
+          <p>{format(nextFutureStartTimeAvailable, format_nextFutureStartTimeAvailableFormatString)}</p>
           <Arrow direction="forward" />
         </GoToNextAvailableDayButton>
       ) : (
